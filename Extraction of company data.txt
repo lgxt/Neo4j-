@@ -1,0 +1,13 @@
+#Upload Package
+library(tidyverse)
+library(dplyr)
+
+#Upload basic data of companies
+allcompanyinformation=read_csv("C://Users//developer//Desktop//更正后的全部企业基本信息表.csv")
+
+#Upload company list
+companylist=read_csv("C://Users//developer//Desktop//企业列表.csv")
+
+#Extract necessary data
+companydata=filter(allcompanyinformation, allcompanyinformation$企业名称%in%companylist$c.name)
+write.csv(companydata, "C://Users//developer//Desktop//companydata.csv")
